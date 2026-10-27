@@ -20,6 +20,8 @@ Update this table at every gate. Work only on the first phase that is not Done.
 - No App Store or Google Play for now. Stay a PWA.
 - Selling will be a monthly subscription per club. Plans are not decided: build nothing plan-specific until the owner decides.
 - Target stack: TypeScript (strict), Vite, Preact, Supabase (unchanged), Cloudflare Pages, GitHub Actions.
+- **Free plans only until the first paying club** (27 Oct 2026): GitHub Free (private repo, Actions minutes), Cloudflare Pages Free, Supabase Free for production and staging (the two free projects), Gmail SMTP. No domain purchase: Phase 1 uses `<project>.pages.dev`. Buying a domain later means one more URL change and reinstall, so do it once, at Phase 4 at the latest.
+- **Free-plan guards.** Supabase Free pauses an inactive project after about a week and has no daily backup: Claude reminds the owner before a long break, and at the end of every month asks the owner to export the database (dashboard backup or SQL dump) and keeps `supabase/migrations/` current. Upgrade to Supabase Pro at the first paying club. Check each service's pricing page before relying on a limit; figures here come from memory.
 
 ## Invariants
 
@@ -40,7 +42,7 @@ Gate to leave: the owner has run 3 real nights on the current app with no seriou
 
 Goal: the same files served from Cloudflare Pages on a stable URL, repo private, a staging database.
 
-Owner-only steps (ask, then wait): buy the domain or accept `<project>.pages.dev`; create the Cloudflare account; connect the GitHub repo in Cloudflare (build command empty, output directory `/`); add the new URL to Supabase → Authentication → URL Configuration (Site URL and Redirect URLs); switch the repo to private; tell admins to reinstall.
+Owner-only steps (ask, then wait): accept `<project>.pages.dev` (no domain purchase yet); create the Cloudflare account; connect the GitHub repo in Cloudflare (build command empty, output directory `/`); add the new URL to Supabase → Authentication → URL Configuration (Site URL and Redirect URLs); switch the repo to private; tell admins to reinstall.
 
 Steps:
 
